@@ -8,9 +8,8 @@
 <script>
   (function(){
     var root = document.documentElement;
-    var savedTheme = localStorage.getItem('hjd-theme');
     var savedScale = localStorage.getItem('hjd-font-scale');
-    if (savedTheme) root.dataset.theme = savedTheme;
+    root.dataset.theme = 'dark';
     if (savedScale) root.style.setProperty('--base-size', savedScale + '%');
   }());
 </script>
@@ -37,18 +36,6 @@
 
   *{ margin:0; padding:0; box-sizing:border-box; }
   html{ scroll-behavior:smooth; font-size:var(--base-size); }
-  @media (prefers-color-scheme: light){
-    :root:not([data-theme="dark"]){
-      --bg:#f5f7fb; --bg-alt:#e9edf5; --surface:#ffffff; --border:#c8d0df;
-      --text:#172033; --text-muted:#4e5b70; --blue:#2457d6; --violet:#7042c8;
-      --amber:#9a5b00; --gradient:linear-gradient(135deg, var(--blue), var(--violet));
-    }
-  }
-  :root[data-theme="light"]{
-    --bg:#f5f7fb; --bg-alt:#e9edf5; --surface:#ffffff; --border:#c8d0df;
-    --text:#172033; --text-muted:#4e5b70; --blue:#2457d6; --violet:#7042c8;
-    --amber:#9a5b00; --gradient:linear-gradient(135deg, var(--blue), var(--violet));
-  }
   body{ background:var(--bg); color:var(--text); font-family:var(--font-body); line-height:1.55; -webkit-font-smoothing:antialiased; }
   a{ color:inherit; }
   a, button{ -webkit-tap-highlight-color:transparent; }
@@ -179,12 +166,6 @@
       <span data-i18n="languageLabel">Idioma</span>
       <div class="accessibility-buttons" role="group" aria-label="Selección de idioma" data-i18n-aria-label="languageGroupLabel">
         <button type="button" id="language-toggle" data-i18n="languageButton">EN</button>
-      </div>
-    </div>
-    <div class="accessibility-control">
-      <span data-i18n="themeLabel">Tema</span>
-      <div class="accessibility-buttons" role="group" aria-label="Selección de tema" data-i18n-aria-label="themeGroupLabel">
-        <button type="button" id="theme-toggle" data-i18n="themeButton">Claro</button>
       </div>
     </div>
     <div class="accessibility-control">
@@ -344,7 +325,7 @@
       pageTitle: 'Quetzal Systems — Sitios web para negocios de Costa Rica', brand: 'Quetzal Systems', brandLabel: 'Quetzal Systems',
       navService: 'Servicio', navProjects: 'Proyectos', navProcess: 'Cómo funciona', navContact: 'Escribime',
       accessibilityTitle: 'Accesibilidad', accessibilityToolsLabel: 'Herramientas de accesibilidad', accessibilityToggleLabel: 'Abrir opciones de accesibilidad', accessibilityCloseLabel: 'Cerrar opciones de accesibilidad',
-      languageLabel: 'Idioma', languageButton: 'EN', languageGroupLabel: 'Selección de idioma', themeLabel: 'Tema', themeButton: 'Claro', themeGroupLabel: 'Selección de tema', textSizeLabel: 'Tamaño del texto', textSizeGroupLabel: 'Selección de tamaño de texto',
+      languageLabel: 'Idioma', languageButton: 'EN', languageGroupLabel: 'Selección de idioma', textSizeLabel: 'Tamaño del texto', textSizeGroupLabel: 'Selección de tamaño de texto',
       heroTitle: 'Tu negocio ya existe. Hagamos que también lo encuentren en internet.', eyebrow: 'Desarrollo web · Costa Rica', heroLead: 'Diseño y desarrollo sitios web y tiendas en línea para pymes, turismo rural y negocios costarricenses — hechos a la medida, no con plantillas genéricas.', heroPrimary: 'Hablemos de tu proyecto', heroSecondary: 'Ver proyectos realizados', terminalSearchLabel: 'buscar:', terminalSearch: '"tours cerca de mí" / "joyería artesanal CR"', terminalResult: 'tu negocio aparece', terminalBooking: 'el cliente reserva o compra sin llamarte', terminalStatusLabel: 'estado:', terminalStatus: 'en línea',
       problemLabel: 'El problema', problemTitle: 'La gente te busca antes de conocerte', problemTextOne: 'Alguien que quiere visitar una cascada, comprar una joya artesanal o encontrar un negocio local casi siempre empieza en Google o Instagram. Si no aparecés ahí, con información clara y una forma fácil de contactarte o comprarte, <strong>ese cliente termina en el negocio de al lado</strong> — no porque sea mejor, sino porque fue el que sí encontró.', problemTextTwo: 'Un sitio web bien hecho no es un gasto de imagen. Es la diferencia entre que un turista reserve tu tour directamente o que un artesano venda sus piezas fuera de la feria del fin de semana. <strong>Es infraestructura para vender más</strong>, todos los días, sin que vos tengas que estar detrás de cada mensaje.',
       serviceLabel: 'El servicio', serviceTitle: 'Un sitio web hecho para tu negocio, no un molde reciclado', serviceName: 'Sitio web a la medida', serviceDescription: 'Diseño y desarrollo completo: desde la primera conversación sobre tu negocio hasta el sitio publicado y funcionando. Incluye lo que tu negocio realmente necesita, sin relleno.', serviceAudience: 'Ideal para turismo rural, tiendas artesanales, servicios locales y pymes que quieren verse tan serias en línea como lo son en persona.', priceFrom: 'Precios accesibles', priceUnit: '/ proyecto', priceNote: 'Nos ajustamos en la primera conversación.', featureDesign: '<b>Diseño a la medida</b><span>— nada de plantillas genéricas</span>', featureBilingual: '<b>Bilingüe (ES/EN)</b><span>si tu negocio recibe turismo extranjero</span>', featureStore: '<b>Tienda en línea</b><span>con catálogo y pedidos, si vendés productos</span>', featureMobile: '<b>Optimizado para celular</b><span>— así es como te va a buscar la mayoría</span>', featureSupport: '<b>Acompañamiento post-entrega</b><span>para ajustes y dudas</span>',
@@ -353,7 +334,7 @@
       contactTitle: '¿Listo para que te encuentren en internet?', contactText: 'Contame de tu negocio y hablamos sin compromiso sobre qué necesita tu sitio web.', contactWhatsapp: 'Escribir por WhatsApp', contactEmail: 'Enviar un correo', contactWhatsappLabel: 'WhatsApp:', contactEmailLabel: 'Correo:', footerBrand: 'Quetzal Systems — Desarrollo web, Costa Rica', footerCopyright: '© 2026'
     },
     en: {
-      pageTitle: 'Quetzal Systems — Websites for Costa Rican businesses', brand: 'Quetzal Systems', brandLabel: 'Quetzal Systems', navService: 'Services', navProjects: 'Projects', navProcess: 'How it works', navContact: 'Contact me', accessibilityTitle: 'Accessibility', accessibilityToolsLabel: 'Accessibility tools', accessibilityToggleLabel: 'Open accessibility options', accessibilityCloseLabel: 'Close accessibility options', languageLabel: 'Language', languageButton: 'ES', languageGroupLabel: 'Language selection', themeLabel: 'Theme', themeButton: 'Dark', themeGroupLabel: 'Theme selection', textSizeLabel: 'Text size', textSizeGroupLabel: 'Text size selection',
+      pageTitle: 'Quetzal Systems — Websites for Costa Rican businesses', brand: 'Quetzal Systems', brandLabel: 'Quetzal Systems', navService: 'Services', navProjects: 'Projects', navProcess: 'How it works', navContact: 'Contact me', accessibilityTitle: 'Accessibility', accessibilityToolsLabel: 'Accessibility tools', accessibilityToggleLabel: 'Open accessibility options', accessibilityCloseLabel: 'Close accessibility options', languageLabel: 'Language', languageButton: 'ES', languageGroupLabel: 'Language selection', textSizeLabel: 'Text size', textSizeGroupLabel: 'Text size selection',
       heroTitle: 'Your business exists. Let people find it online too.', eyebrow: 'Web development · Costa Rica', heroLead: 'I design and build websites and online stores for small businesses, rural tourism and Costa Rican businesses — custom-made, never generic templates.', heroPrimary: 'Let’s talk about your project', heroSecondary: 'See completed projects', terminalSearchLabel: 'search:', terminalSearch: '"tours near me" / "artisan jewelry CR"', terminalResult: 'your business appears', terminalBooking: 'customers book or buy without calling', terminalStatusLabel: 'status:', terminalStatus: 'online', problemLabel: 'The problem', problemTitle: 'People search for you before they know you', problemTextOne: 'Someone who wants to visit a waterfall, buy an artisan jewel or find a local business almost always starts on Google or Instagram. If you are not there with clear information and an easy way to contact or buy from you, <strong>that customer ends up at the business next door</strong> — not because it is better, but because it was the one they found.', problemTextTwo: 'A well-built website is not an image expense. It is the difference between a tourist booking your tour directly or an artisan selling pieces beyond the weekend fair. <strong>It is infrastructure for selling more</strong>, every day, without chasing every message.',
       serviceLabel: 'The service', serviceTitle: 'A website made for your business, not a recycled mold', serviceName: 'Custom website', serviceDescription: 'Complete design and development: from the first conversation about your business to a published, working site. It includes what your business truly needs, without filler.', serviceAudience: 'Ideal for rural tourism, artisan shops, local services and small businesses that want to look as professional online as they are in person.', priceFrom: 'Affordable pricing', priceUnit: '/ project', priceNote: 'We will tailor it during our first conversation.', featureDesign: '<b>Custom design</b><span>— no generic templates</span>', featureBilingual: '<b>Bilingual (ES/EN)</b><span>if your business welcomes international visitors</span>', featureStore: '<b>Online store</b><span>with catalog and orders, if you sell products</span>', featureMobile: '<b>Mobile optimized</b><span>— that is how most people will find you</span>', featureSupport: '<b>Post-launch support</b><span>for questions and adjustments</span>', casesLabel: 'Completed projects', casesTitle: 'Completed work', galleryLabel: 'Joyería Creativas product gallery', galleryPhotoOne: 'Products', galleryPhotoTwo: 'Earrings', galleryPhotoThree: 'Rings', galleryPhotoFour: 'Artisan jewelry', caseTag: 'ARTISAN E-COMMERCE', caseTitle: 'Joyería Creativas', caseDescription: 'Website for a creative jewelry brand, with a clear presentation of its products and a digital experience designed for its customers.', caseVisit: 'Visit website', processLabel: 'How it works', processTitle: 'From idea to published site', stepOneTitle: 'We talk', stepOneText: 'You tell me about your business, your customers and what you need the website to do for you.', stepTwoTitle: 'Design and development', stepTwoText: 'I build a custom site for your business, with reviews along the way so it matches your vision.', stepThreeTitle: 'Final adjustments', stepThreeText: 'We review it together and refine the copy, images and details until it is ready to launch.', stepFourTitle: 'Launch', stepFourText: 'Your site goes live and keeps working, with support if something comes up later.', contactTitle: 'Ready to be found online?', contactText: 'Tell me about your business and let’s discuss what your website needs, with no pressure.', contactWhatsapp: 'Message on WhatsApp', contactEmail: 'Send an email', contactWhatsappLabel: 'WhatsApp:', contactEmailLabel: 'Email:', footerBrand: 'Quetzal Systems — Web development, Costa Rica', footerCopyright: '© 2026'
     }
@@ -364,7 +345,6 @@
   const panel = document.getElementById('accessibility-panel');
   const panelToggle = document.getElementById('accessibility-toggle');
   const languageToggle = document.getElementById('language-toggle');
-  const themeToggle = document.getElementById('theme-toggle');
   const fontScaleKey = 'hjd-font-scale';
   let language = localStorage.getItem('hjd-language') || 'es';
   let fontScale = Number(localStorage.getItem(fontScaleKey)) || 100;
@@ -377,15 +357,12 @@
     document.querySelectorAll('[data-i18n-html]').forEach(function(element){ element.innerHTML = content[element.dataset.i18nHtml]; });
     document.querySelectorAll('[data-i18n-aria-label]').forEach(function(element){ element.setAttribute('aria-label', content[element.dataset.i18nAriaLabel]); });
     languageToggle.textContent = content.languageButton;
-    themeToggle.textContent = (root.dataset.theme || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark')) === 'dark' ? content.themeButton : (language === 'es' ? 'Oscuro' : 'Light');
     panelToggle.setAttribute('aria-label', content[panelToggle.getAttribute('aria-expanded') === 'true' ? 'accessibilityCloseLabel' : 'accessibilityToggleLabel']);
     document.title = content.pageTitle;
   }
-  function applyTheme(theme){ root.dataset.theme = theme; localStorage.setItem('hjd-theme', theme); applyLanguage(); }
   function setFontScale(nextScale){ fontScale = Math.min(150, Math.max(80, nextScale)); root.style.setProperty('--base-size', fontScale + '%'); localStorage.setItem(fontScaleKey, fontScale); }
   panelToggle.addEventListener('click', function(){ const isOpen = panelToggle.getAttribute('aria-expanded') === 'true'; panelToggle.setAttribute('aria-expanded', String(!isOpen)); panelToggle.setAttribute('aria-label', translations[language][isOpen ? 'accessibilityToggleLabel' : 'accessibilityCloseLabel']); panel.hidden = isOpen; panel.classList.toggle('is-open', !isOpen); if (!isOpen) languageToggle.focus(); });
   languageToggle.addEventListener('click', function(){ language = language === 'es' ? 'en' : 'es'; localStorage.setItem('hjd-language', language); applyLanguage(); });
-  themeToggle.addEventListener('click', function(){ applyTheme((root.dataset.theme || 'dark') === 'dark' ? 'light' : 'dark'); });
   document.getElementById('font-decrease').addEventListener('click', function(){ setFontScale(fontScale - 10); });
   document.getElementById('font-increase').addEventListener('click', function(){ setFontScale(fontScale + 10); });
   document.addEventListener('keydown', function(event){ if (event.key === 'Escape' && !panel.hidden){ panel.hidden = true; panel.classList.remove('is-open'); panelToggle.setAttribute('aria-expanded', 'false'); panelToggle.setAttribute('aria-label', translations[language].accessibilityToggleLabel); panelToggle.focus(); } });

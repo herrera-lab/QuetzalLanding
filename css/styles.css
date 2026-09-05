@@ -19,34 +19,6 @@
 
   html{ scroll-behavior:smooth; font-size:var(--base-size); }
 
-  @media (prefers-color-scheme: light){
-    :root:not([data-theme="dark"]){
-      --bg:#f5f7fb;
-      --bg-alt:#e9edf5;
-      --surface:#ffffff;
-      --border:#c8d0df;
-      --text:#172033;
-      --text-muted:#4e5b70;
-      --blue:#2457d6;
-      --violet:#7042c8;
-      --amber:#9a5b00;
-      --gradient:linear-gradient(135deg, var(--blue), var(--violet));
-    }
-  }
-
-  :root[data-theme="light"]{
-    --bg:#f5f7fb;
-    --bg-alt:#e9edf5;
-    --surface:#ffffff;
-    --border:#c8d0df;
-    --text:#172033;
-    --text-muted:#4e5b70;
-    --blue:#2457d6;
-    --violet:#7042c8;
-    --amber:#9a5b00;
-    --gradient:linear-gradient(135deg, var(--blue), var(--violet));
-  }
-
   body{
     background:var(--bg);
     color:var(--text);

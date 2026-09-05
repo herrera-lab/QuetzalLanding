@@ -2,7 +2,6 @@
   const panel = document.getElementById('accessibility-panel');
   const panelToggle = document.getElementById('accessibility-toggle');
   const languageToggle = document.getElementById('language-toggle');
-  const themeToggle = document.getElementById('theme-toggle');
   const fontScaleKey = 'hjd-font-scale';
   let language = localStorage.getItem('hjd-language') || 'es';
   let fontScale = Number(localStorage.getItem(fontScaleKey)) || 100;
@@ -15,15 +14,8 @@
     document.querySelectorAll('[data-i18n-html]').forEach(function(element){ element.innerHTML = content[element.dataset.i18nHtml]; });
     document.querySelectorAll('[data-i18n-aria-label]').forEach(function(element){ element.setAttribute('aria-label', content[element.dataset.i18nAriaLabel]); });
     languageToggle.textContent = content.languageButton;
-    themeToggle.textContent = (root.dataset.theme || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark')) === 'dark' ? content.themeButton : (language === 'es' ? 'Oscuro' : 'Light');
     panelToggle.setAttribute('aria-label', content[panelToggle.getAttribute('aria-expanded') === 'true' ? 'accessibilityCloseLabel' : 'accessibilityToggleLabel']);
     document.title = content.pageTitle;
-  }
-
-  function applyTheme(theme){
-    root.dataset.theme = theme;
-    localStorage.setItem('hjd-theme', theme);
-    applyLanguage();
   }
 
   function setFontScale(nextScale){
@@ -41,7 +33,6 @@
     if (!isOpen) languageToggle.focus();
   });
   languageToggle.addEventListener('click', function(){ language = language === 'es' ? 'en' : 'es'; localStorage.setItem('hjd-language', language); applyLanguage(); });
-  themeToggle.addEventListener('click', function(){ applyTheme((root.dataset.theme || 'dark') === 'dark' ? 'light' : 'dark'); });
   document.getElementById('font-decrease').addEventListener('click', function(){ setFontScale(fontScale - 10); });
   document.getElementById('font-increase').addEventListener('click', function(){ setFontScale(fontScale + 10); });
   document.addEventListener('keydown', function(event){
