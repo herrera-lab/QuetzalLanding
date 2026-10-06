@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Quetzal Systems — Sitios web para negocios de Costa Rica</title>
+<meta name="description" content="Diseño y desarrollo de sitios web y tiendas en línea a la medida para pymes, turismo rural y negocios de Costa Rica.">
+<meta name="theme-color" content="#0d2c29">
 <link rel="icon" type="image/png" href="imagenes/logo%20(2).png">
 <script>
   (function(){
@@ -140,67 +142,340 @@
   }
   @media (max-width:380px){ .nav{ padding-left:16px; padding-right:16px; } .wrap{ padding-left:16px; padding-right:16px; } .logo{ font-size:.9rem; } .logo-image{ width:32px; height:32px; } .nav-cta{ padding:9px 10px; } .hero h1{ font-size:2.1rem; } h2{ font-size:2rem; } footer{ padding-left:16px; padding-right:16px; } }
 </style>
+<style>
+  :root {
+    color-scheme: light;
+    --paper: #f7f6f1;
+    --paper-deep: #eeede5;
+    --ink: #172c2a;
+    --ink-soft: #435653;
+    --forest: #123c36;
+    --forest-deep: #0d2c29;
+    --green: #087e70;
+    --mint: #c4e36a;
+    --gold: #d5a85a;
+    --line: rgba(23, 44, 42, .13);
+    --white: #fff;
+  }
+
+  body { background: var(--paper); color: var(--ink); }
+  header { background: rgba(247, 246, 241, .94); border-color: var(--line); }
+  .wrap { width: min(1160px, 100% - 64px); max-width: 1160px; }
+  .nav { width: min(1240px, 100% - 64px); min-height: 82px; padding: 12px 0; }
+  .logo { gap: 12px; color: var(--ink); font-size: 1.08rem; letter-spacing: -.035em; text-decoration: none; }
+  .logo-badge { display: grid; width: 76px; height: 76px; flex: 0 0 76px; place-items: center; overflow: hidden; border: 1px solid var(--green); border-radius: 50%; background: #fff; box-shadow: 0 3px 12px rgba(13, 44, 41, .16); }
+  .logo-badge .logo-image { display: block; width: 100%; max-width: none; height: 100%; object-fit: contain; }
+  .nav-links { gap: clamp(18px, 3vw, 38px); color: var(--ink-soft); font-size: .91rem; }
+  .nav-links a:hover { color: var(--green); }
+  .nav-cta { padding: 12px 20px; border-radius: 999px; background: var(--forest); color: #fff; transition: background .2s ease, transform .2s ease; }
+  .nav-cta:hover { background: var(--green); transform: translateY(-1px); }
+
+  .hero.wrap { position: relative; isolation: isolate; display: grid; grid-template-columns: 1.02fr .98fr; align-items: center; gap: clamp(40px, 7vw, 92px); width: 100%; max-width: none; margin: 0; padding: clamp(72px, 9vw, 124px) max(32px, calc((100% - 1160px) / 2)); overflow: hidden; background: var(--forest-deep); color: #fff; }
+  .hero::before, .hero::after { position: absolute; z-index: -1; content: ''; border: 1px solid rgba(196, 227, 106, .12); border-radius: 50%; pointer-events: none; }
+  .hero::before { width: 700px; height: 700px; top: -410px; left: -220px; }
+  .hero::after { width: 520px; height: 520px; right: -220px; bottom: -360px; }
+  .hero-copy { position: relative; z-index: 1; max-width: 590px; }
+  .eyebrow-tag { gap: 10px; margin-bottom: 28px; color: #d3e9b4; border: 0; border-radius: 0; padding: 0; font-size: .78rem; letter-spacing: .09em; text-transform: uppercase; }
+  .eyebrow-tag .dot { width: 8px; height: 8px; background: var(--mint); box-shadow: 0 0 0 5px rgba(196, 227, 106, .13); }
+  .hero h1 { max-width: 12ch; margin: 0 0 24px; font-size: clamp(2.75rem, 5.25vw, 5rem); line-height: 1.03; letter-spacing: -.065em; }
+  .hero p.lead { max-width: 53ch; margin: 0 0 34px; color: rgba(255, 255, 255, .73); font-size: clamp(1.02rem, 1.35vw, 1.15rem); line-height: 1.8; }
+  .hero-ctas, .contact-row { align-items: center; gap: 12px; }
+  .btn-primary, .btn-secondary { display: inline-flex; justify-content: center; align-items: center; min-height: 52px; padding: 13px 22px; border: 1px solid transparent; border-radius: 999px; font-size: .93rem; line-height: 1.3; transition: transform .2s ease, background .2s ease, border-color .2s ease; }
+  .btn-primary { background: var(--mint); color: var(--forest-deep); }
+  .btn-primary:hover { background: #d5ee8b; transform: translateY(-2px); }
+  .btn-secondary { border-color: var(--line); color: var(--ink); }
+  .hero .btn-secondary { border-color: rgba(255, 255, 255, .32); color: #fff; }
+  .btn-secondary:hover { border-color: var(--green); transform: translateY(-2px); }
+  .hero .btn-secondary:hover { border-color: var(--mint); }
+  .hero-visual { position: relative; min-width: 0; padding: 18px 20px 36px 0; }
+  .hero-visual::before { position: absolute; z-index: -1; content: ''; inset: 4% 0 0 13%; border: 1px solid rgba(196, 227, 106, .22); border-radius: 20px; transform: rotate(3deg); }
+  .hero-photo { width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; object-position: 50% 46%; border: 8px solid rgba(255, 255, 255, .94); border-radius: 48% 48% 24px 24px; box-shadow: 0 28px 80px rgba(0, 0, 0, .26); }
+  .hero-float { position: absolute; right: -22px; bottom: 0; width: clamp(140px, 18vw, 210px); padding: 7px; background: var(--paper); border-radius: 16px; box-shadow: 0 18px 50px rgba(0, 0, 0, .28); transform: rotate(5deg); }
+  .hero-float img { width: 100%; height: auto; aspect-ratio: 1907 / 897; object-fit: contain; border-radius: 10px; }
+  .hero-caption { position: absolute; left: -26px; bottom: 45px; padding: 15px 20px; border: 1px solid rgba(255, 255, 255, .18); border-radius: 14px; background: rgba(13, 44, 41, .86); color: #fff; box-shadow: 0 14px 34px rgba(0, 0, 0, .18); backdrop-filter: blur(12px); }
+  .hero-caption strong { display: block; font: 600 .95rem var(--font-head); }
+  .hero-caption span { display: block; margin-top: 3px; color: #d3e9b4; font: .67rem var(--font-mono); letter-spacing: .09em; text-transform: uppercase; }
+
+  .accessibility-toggle { border-color: rgba(255, 255, 255, .22); background: var(--forest); color: #fff; }
+  .accessibility-toggle[aria-expanded="true"] { background: var(--green); }
+  .accessibility-panel { border-color: var(--line); border-radius: 18px; background: var(--paper); color: var(--ink); box-shadow: 0 18px 50px rgba(13, 44, 41, .2); }
+  .accessibility-panel .accessibility-title { font-family: var(--font-head); }
+  .accessibility-control { border-color: var(--line); }
+  .accessibility-buttons button { border-color: var(--line); border-radius: 9px; background: #fff; color: var(--ink); }
+  .accessibility-buttons button:hover { border-color: var(--green); }
+
+  section { padding: 108px 0; border-top: 0; }
+  section.wrap { padding-top: 108px; padding-bottom: 108px; }
+  .section-head { max-width: 700px; margin-bottom: 48px; }
+  .section-label { margin-bottom: 13px; color: var(--green); font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; }
+  h2 { margin: 0 0 17px; font-size: clamp(2rem, 3.75vw, 3.5rem); line-height: 1.08; letter-spacing: -.055em; }
+  .section-head p { max-width: 64ch; margin: 0; color: var(--ink-soft); font-size: 1.02rem; }
+  #problema { display: grid; grid-template-columns: .88fr 1.12fr; gap: clamp(42px, 8vw, 120px); align-items: start; border-top: 1px solid var(--line); }
+  #problema .section-head { margin: 0; }
+  .problem-grid { display: grid; gap: 22px; }
+  .problem-grid p { margin: 0; color: var(--ink-soft); font-size: 1rem; }
+  .problem-grid strong { color: var(--forest); }
+  #servicio { background: var(--paper-deep); }
+  .service-card { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 7vw, 92px); padding: clamp(30px, 6vw, 68px); border: 0; border-radius: 26px; background: var(--forest); color: #fff; box-shadow: 0 24px 60px rgba(18, 60, 54, .12); }
+  .service-card h3 { margin: 0 0 16px; font-size: clamp(1.5rem, 2.5vw, 2rem); letter-spacing: -.035em; }
+  .service-card > div:first-child p { margin: 0 0 20px; color: rgba(255, 255, 255, .72); }
+  .price { margin-bottom: 4px; color: var(--mint); font-size: clamp(1.55rem, 2.5vw, 2.25rem); letter-spacing: -.04em; }
+  .price span { color: rgba(255, 255, 255, .68); font: 400 .92rem var(--font-body); letter-spacing: 0; }
+  .price-note { margin-bottom: 24px; color: rgba(255, 255, 255, .62); font-size: .85rem; }
+  .feature-list { margin: 0; padding: 0; list-style: none; }
+  .feature-list li { display: grid; grid-template-columns: 8px minmax(0, 1fr) minmax(0, 1.15fr); align-items: start; gap: 12px; padding: 13px 0; border-top: 1px solid rgba(255, 255, 255, .15); color: rgba(255, 255, 255, .7); font-size: .88rem; }
+  .feature-list li:first-child { border-top: 0; }
+  .feature-list li::before { width: 7px; height: 7px; margin-top: 8px; border-radius: 50%; background: var(--mint); content: ''; }
+  .feature-list li b { color: #fff; font-weight: 500; }
+  .feature-list li span { text-align: right; }
+  #casos { background: var(--paper); }
+  .cases { grid-template-columns: minmax(0, 1fr); }
+  .case-card { display: grid; grid-template-columns: 1.2fr .8fr; width: 100%; border-color: var(--line); border-radius: 26px; background: #fff; box-shadow: 0 16px 50px rgba(23, 44, 42, .06); }
+  .case-gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; align-content: center; padding: clamp(20px, 4vw, 42px); background: #fff; }
+  .case-gallery figure { min-width: 0; margin: 0; overflow: hidden; border-radius: 12px; background: #071226; }
+  .case-gallery img { width: 100%; aspect-ratio: 1.42; object-fit: cover; object-position: top center; transition: transform .35s ease; }
+  .case-gallery figure:hover img { transform: scale(1.04); }
+  .case-body { display: flex; flex-direction: column; justify-content: center; padding: clamp(26px, 5vw, 54px); }
+  .case-tag { margin-bottom: 12px; color: var(--green); font-size: .68rem; letter-spacing: .1em; }
+  .case-body h3 { margin: 0 0 12px; font-size: clamp(1.5rem, 2.5vw, 2rem); letter-spacing: -.04em; }
+  .case-body p { margin: 0; color: var(--ink-soft); font-size: .95rem; }
+  .case-visit { align-self: flex-start; margin-top: 26px; border-color: var(--line); }
+  .case-card-nexum .nexum-visual { padding: clamp(20px, 4vw, 42px); background: #fff; }
+  .nexum-screens { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .nexum-screens figure { min-width: 0; margin: 0; overflow: hidden; border-radius: 12px; background: #071226; }
+  .nexum-screens img { width: 100%; aspect-ratio: 1.42; object-fit: cover; object-position: top center; transition: transform .35s ease; }
+  .nexum-screens figure:hover img { transform: scale(1.04); }
+  #proceso { border-top: 1px solid var(--line); background: var(--paper-deep); }
+  .process { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+  .step { min-height: 205px; padding: 24px; border: 1px solid var(--line); border-radius: 18px; background: rgba(255, 255, 255, .55); }
+  .step-num { display: flex; align-items: center; justify-content: center; width: 38px; height: 38px; margin-bottom: 25px; border-radius: 50%; background: var(--forest); color: var(--mint); font: 500 .72rem var(--font-mono); }
+  .step h3 { margin: 0 0 9px; font-size: 1.02rem; }
+  .step p { margin: 0; color: var(--ink-soft); font-size: .87rem; line-height: 1.65; }
+  #contacto { padding-bottom: 96px; }
+  .final-cta { position: relative; overflow: hidden; padding: clamp(34px, 7vw, 76px); border: 0; border-radius: 28px; background: var(--forest-deep); color: #fff; }
+  .final-cta::after { position: absolute; top: -170px; right: -85px; width: 380px; height: 380px; border: 1px solid rgba(196, 227, 106, .22); border-radius: 50%; box-shadow: 0 0 0 32px rgba(196, 227, 106, .04), 0 0 0 76px rgba(196, 227, 106, .035); content: ''; pointer-events: none; }
+  .final-cta h2, .final-cta p, .contact-row, .contact-detail { position: relative; z-index: 1; }
+  .final-cta h2 { max-width: 17ch; }
+  .final-cta p { max-width: 52ch; margin: 0 0 28px; color: rgba(255, 255, 255, .72); font-size: 1.02rem; }
+  .contact-row .btn-secondary { border-color: rgba(255, 255, 255, .32); color: #fff; }
+  .contact-detail { margin-top: 25px; color: rgba(255, 255, 255, .65); font-size: .83rem; }
+  .contact-detail a { color: var(--mint); text-decoration: none; }
+  .contact-detail a:hover { text-decoration: underline; }
+  footer { padding: 28px 0 34px; border-top: 1px solid var(--line); color: var(--ink-soft); font-size: .82rem; }
+  footer [data-i18n="footerBrand"] { color: var(--ink); font-weight: 500; }
+
+  @media (max-width: 900px) {
+    .hero.wrap { grid-template-columns: 1fr .85fr; gap: 36px; }
+    #problema { grid-template-columns: 1fr; gap: 28px; }
+    .service-card { gap: 36px; }
+    .case-card { grid-template-columns: 1fr; }
+    .case-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .process { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 680px) {
+    .wrap { width: min(100% - 40px, 560px); }
+    .nav { width: calc(100% - 40px); min-height: 70px; gap: 12px; }
+    .logo { gap: 8px; font-size: .98rem; }
+    .logo-badge { width: 64px; height: 64px; flex-basis: 64px; }
+    .nav-links { display: none; }
+    .nav-cta { padding: 11px 15px; font-size: .83rem; }
+    .hero.wrap { grid-template-columns: 1fr; gap: 44px; padding: 72px 24px 70px; }
+    .hero h1 { max-width: 13ch; font-size: clamp(2.75rem, 12vw, 4.25rem); }
+    .hero p.lead { font-size: 1rem; }
+    .hero-ctas { align-items: stretch; }
+    .hero-ctas a { flex: 1 1 100%; }
+    .hero-visual { width: min(100% - 18px, 460px); margin: 0 auto; padding: 10px 14px 28px 0; }
+    .hero-float { right: -10px; width: 148px; }
+    .hero-caption { left: -10px; bottom: 34px; padding: 12px 15px; }
+    section.wrap { padding-top: 76px; padding-bottom: 76px; }
+    #problema { padding-top: 76px; padding-bottom: 76px; }
+    .section-head { margin-bottom: 34px; }
+    h2 { font-size: clamp(2rem, 9vw, 3rem); }
+    .problem-grid { gap: 18px; }
+    .service-card { grid-template-columns: 1fr; gap: 30px; padding: 28px 22px; border-radius: 20px; }
+    .feature-list li { grid-template-columns: 8px minmax(0, 1fr); gap: 9px; }
+    .feature-list li span { grid-column: 2; text-align: left; margin-top: -7px; }
+    .case-card { border-radius: 20px; }
+    .case-card-nexum .nexum-visual { padding: 18px; }
+    .nexum-screens { gap: 9px; }
+    .case-gallery { grid-template-columns: 1fr 1fr; gap: 9px; padding: 18px; }
+    .case-body { padding: 26px 22px; }
+    .case-visit { width: 100%; }
+    .process { grid-template-columns: 1fr; gap: 10px; }
+    .step { min-height: 0; padding: 20px; }
+    .step-num { margin-bottom: 16px; }
+    #contacto { padding-bottom: 72px; }
+    .final-cta { border-radius: 22px; }
+    .contact-row { align-items: stretch; }
+    .contact-row a { width: 100%; }
+    footer { padding: 24px 0 30px; }
+    .accessibility { right: 16px; bottom: 16px; }
+  }
+  @media (max-width: 380px) {
+    .wrap { width: calc(100% - 32px); }
+    .nav { width: calc(100% - 32px); }
+    .logo { font-size: .9rem; }
+    .nav-cta { padding: 10px 12px; }
+    .hero.wrap { padding-inline: 20px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+  }
+  .nav { position: relative; }
+  .nav-tools { display: flex; align-items: center; gap: 10px; }
+  .language-toggle { min-width: 42px; min-height: 40px; padding: 8px 11px; border: 1px solid var(--line); border-radius: 999px; background: transparent; color: var(--ink); cursor: pointer; font: 600 .76rem var(--font-mono); transition: background .2s ease, border-color .2s ease; }
+  .language-toggle:hover { border-color: var(--green); background: rgba(8, 126, 112, .07); }
+  .accessibility { position: relative; right: auto; bottom: auto; z-index: 1; }
+  .accessibility-toggle { width: 40px; height: 40px; border-color: var(--line); background: transparent; color: var(--ink); box-shadow: none; font-size: 1.2rem; }
+  .accessibility-toggle[aria-expanded="true"] { background: var(--forest); color: #fff; }
+  .accessibility-panel { top: calc(100% + 12px); right: 0; bottom: auto; }
+  .whatsapp-float { position: fixed; right: 24px; bottom: 24px; z-index: 90; display: grid; width: 58px; height: 58px; place-items: center; border: 1px solid rgba(255, 255, 255, .72); border-radius: 50%; background: #168b62; color: #fff; box-shadow: 0 8px 28px rgba(9, 43, 32, .3); opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(12px); transition: opacity .2s ease, visibility .2s ease, transform .2s ease, background .2s ease; }
+  .whatsapp-float.is-visible { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); }
+  .whatsapp-float:hover { transform: translateY(-3px); background: #11764f; }
+  .whatsapp-float svg { width: 27px; height: 27px; fill: currentColor; }
+  @media (max-width: 680px) {
+    .nav-tools { gap: 6px; }
+    .language-toggle, .accessibility-toggle { width: 36px; min-width: 36px; height: 36px; min-height: 36px; padding: 0; }
+    .nav-cta { padding: 10px 12px; font-size: .78rem; }
+    .whatsapp-float { right: 16px; bottom: 16px; width: 54px; height: 54px; }
+  }
+  @media (max-width: 380px) {
+    .nav { gap: 6px; }
+    .nav .logo { gap: 6px; font-size: .82rem; }
+    .nav .logo-badge { width: 56px; height: 56px; flex-basis: 56px; }
+    .nav-cta { display: none; }
+  }
+  .hero.wrap { min-height: calc(100vh - 83px); min-height: calc(100svh - 83px); padding-block: clamp(30px, 6svh, 62px); }
+  .hero h1 { max-width: 14ch; font-size: clamp(2.7rem, 4.5vw, 4.25rem); }
+  .hero .hero-ctas { margin-bottom: 0; }
+  .hero-visual { padding: 12px 16px 28px 0; }
+  .hero-float { width: clamp(140px, 18vw, 210px); }
+  @media (max-width: 680px) {
+    .hero.wrap { min-height: calc(100vh - 71px); min-height: calc(100svh - 71px); grid-template-columns: 1fr; align-content: center; gap: clamp(10px, 2.2svh, 18px); padding: clamp(16px, 3.5svh, 28px) 24px; }
+    .hero-copy { max-width: none; }
+    .eyebrow-tag { margin-bottom: 12px; font-size: .68rem; }
+    .hero h1 { max-width: 18ch; margin-bottom: 12px; font-size: clamp(1.85rem, 7.7vw, 2.55rem); line-height: 1.02; letter-spacing: -.055em; }
+    .hero p.lead { max-width: 56ch; margin-bottom: 14px; font-size: .88rem; line-height: 1.48; }
+    .hero .hero-ctas { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .hero .hero-ctas a { min-width: 0; min-height: 42px; padding: 9px 10px; font-size: .72rem; line-height: 1.2; }
+    .hero-visual { width: min(100% - 12px, 280px); margin: 0 auto; padding: 10px 14px 28px 0; }
+    .hero-photo { border-width: 5px; border-radius: 48% 48% 18px 18px; }
+    .hero-float { right: -10px; bottom: 0; width: clamp(130px, 38vw, 150px); padding: 7px; border-radius: 16px; }
+    .hero-float img { border-radius: 7px; }
+    .hero-caption { left: -8px; bottom: 20px; padding: 8px 11px; border-radius: 10px; }
+    .hero-caption strong { font-size: .75rem; }
+    .hero-caption span { font-size: .54rem; }
+  }
+  @media (max-width: 380px), (max-width: 680px) and (max-height: 700px) {
+    .hero.wrap { gap: 10px; padding-block: 14px; }
+    .hero h1 { font-size: clamp(1.72rem, 7vw, 2.15rem); }
+    .hero p.lead { margin-bottom: 10px; font-size: .82rem; }
+    .hero-float { width: clamp(120px, 38vw, 140px); }
+    .hero-visual { width: min(100% - 12px, 215px); padding-bottom: 20px; }
+  }
+  @media (max-width: 380px) and (max-height: 600px) {
+    .hero.wrap { gap: 6px; padding-block: 10px; }
+    .hero h1 { font-size: 1.62rem; }
+    .hero p.lead { font-size: .76rem; line-height: 1.4; }
+    .hero-visual { width: min(100% - 12px, 175px); padding: 4px 8px 12px 0; }
+    .hero-photo { border-width: 4px; }
+  }
+  .nav { position: relative; justify-content: space-between; }
+  .nav-tools { margin-left: auto; }
+  .nav-menu { position: absolute; top: calc(100% + 8px); right: 0; z-index: 60; display: none; width: min(360px, calc(100vw - 32px)); flex-direction: column; align-items: stretch; gap: 8px; padding: 12px; border: 1px solid var(--line); border-radius: 16px; background: var(--paper); box-shadow: 0 16px 36px rgba(13, 44, 41, .16); }
+  .nav-menu.is-open { display: flex; }
+  .nav-menu .nav-links { display: flex; flex-direction: column; gap: 0; }
+  .nav-menu .nav-links a { padding: 12px 10px; border-bottom: 1px solid var(--line); color: var(--ink); }
+  .nav-menu .nav-links a:last-child { border-bottom: 0; }
+  .nav-menu .nav-cta { display: block; margin-top: 4px; padding: 12px 16px; text-align: center; }
+  .nav-menu-toggle { display: flex; width: 40px; min-width: 40px; height: 40px; margin-left: 12px; flex-direction: column; align-items: center; justify-content: center; gap: 4px; padding: 0; border: 1px solid var(--line); border-radius: 50%; background: transparent; color: var(--ink); cursor: pointer; }
+  .nav-menu-toggle span { width: 15px; height: 2px; border-radius: 2px; background: currentColor; transition: transform .2s ease, opacity .2s ease; }
+  .nav-menu-toggle[aria-expanded="true"] span:first-child { transform: translateY(6px) rotate(45deg); }
+  .nav-menu-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  .nav-menu-toggle[aria-expanded="true"] span:last-child { transform: translateY(-6px) rotate(-45deg); }
+  @media (max-width: 720px) {
+    .nav-menu { right: 0; left: 0; width: auto; }
+    .nav-menu-toggle { width: 36px; min-width: 36px; height: 36px; }
+  }
+  @media (min-width: 681px) and (max-height: 760px) {
+    .hero.wrap { min-height: calc(100svh - 83px); gap: 28px; padding-block: 24px; }
+    .hero h1 { font-size: clamp(2.5rem, 4vw, 3.5rem); }
+    .hero p.lead { margin-bottom: 18px; font-size: 1rem; }
+    .hero-visual { width: min(100%, 460px); justify-self: end; }
+  }
+</style>
 </head>
 <body>
 
 <header>
   <div class="nav">
-    <div class="logo" data-i18n-aria-label="brandLabel">
-      <img class="logo-image" src="imagenes/LogoSinFondo.png" alt="Logotipo de Quetzal Systems">
+    <a class="logo" href="#inicio" data-i18n-aria-label="brandLabel">
+      <span class="logo-badge">
+        <img class="logo-image" src="imagenes/logo%20(2).png" alt="Logotipo de Quetzal Systems" data-i18n-alt="brandAlt">
+      </span>
       <span data-i18n="brand">Quetzal Systems</span>
+    </a>
+    <div class="nav-menu" id="nav-menu">
+      <nav class="nav-links">
+        <a href="#servicio" data-i18n="navService">Servicio</a>
+        <a href="#casos" data-i18n="navProjects">Proyectos</a>
+        <a href="#proceso" data-i18n="navProcess">Cómo funciona</a>
+      </nav>
+      <a class="nav-cta" href="#contacto" data-i18n="navContact">Escribime</a>
     </div>
-    <nav class="nav-links">
-      <a href="#servicio" data-i18n="navService">Servicio</a>
-      <a href="#casos" data-i18n="navProjects">Proyectos</a>
-      <a href="#proceso" data-i18n="navProcess">Cómo funciona</a>
-    </nav>
-    <a class="nav-cta" href="#contacto" data-i18n="navContact">Escribime</a>
+    <div class="nav-tools">
+      <button class="language-toggle" id="language-toggle" type="button" aria-label="Cambiar idioma a inglés" data-i18n-aria-label="languageToggleLabel" data-i18n="languageButton">EN</button>
+      <aside class="accessibility" aria-label="Herramientas de accesibilidad" data-i18n-aria-label="accessibilityToolsLabel">
+        <button class="accessibility-toggle" id="accessibility-toggle" type="button" aria-expanded="false" aria-controls="accessibility-panel" aria-label="Abrir opciones de accesibilidad" data-i18n-aria-label="accessibilityToggleLabel">◉</button>
+        <div class="accessibility-panel" id="accessibility-panel" role="dialog" aria-labelledby="accessibility-title" hidden>
+          <p class="accessibility-title" id="accessibility-title" data-i18n="accessibilityTitle">Accesibilidad</p>
+          <div class="accessibility-control">
+            <span data-i18n="textSizeLabel">Tamaño del texto</span>
+            <div class="accessibility-buttons" role="group" aria-label="Selección de tamaño de texto" data-i18n-aria-label="textSizeGroupLabel">
+              <button type="button" id="font-decrease" aria-label="Decrease text size">A-</button>
+              <button type="button" id="font-increase" aria-label="Increase text size">A+</button>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+    <button class="nav-menu-toggle" id="nav-menu-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Abrir menú de navegación" data-i18n-aria-label="menuToggleLabel">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
 
-<aside class="accessibility" aria-label="Herramientas de accesibilidad" data-i18n-aria-label="accessibilityToolsLabel">
-  <button class="accessibility-toggle" id="accessibility-toggle" type="button" aria-expanded="false" aria-controls="accessibility-panel" aria-label="Abrir opciones de accesibilidad" data-i18n-aria-label="accessibilityToggleLabel">◉</button>
-  <div class="accessibility-panel" id="accessibility-panel" role="dialog" aria-labelledby="accessibility-title" hidden>
-    <p class="accessibility-title" id="accessibility-title" data-i18n="accessibilityTitle">Accesibilidad</p>
-    <div class="accessibility-control">
-      <span data-i18n="languageLabel">Idioma</span>
-      <div class="accessibility-buttons" role="group" aria-label="Selección de idioma" data-i18n-aria-label="languageGroupLabel">
-        <button type="button" id="language-toggle" data-i18n="languageButton">EN</button>
-      </div>
-    </div>
-    <div class="accessibility-control">
-      <span data-i18n="textSizeLabel">Tamaño del texto</span>
-      <div class="accessibility-buttons" role="group" aria-label="Selección de tamaño de texto" data-i18n-aria-label="textSizeGroupLabel">
-        <button type="button" id="font-decrease" aria-label="Decrease text size">A-</button>
-        <button type="button" id="font-increase" aria-label="Increase text size">A+</button>
-      </div>
-    </div>
-  </div>
-</aside>
+<a class="whatsapp-float" href="https://wa.me/50664500708" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp" data-i18n-aria-label="whatsappFloatLabel">
+  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M20.52 3.48A11.87 11.87 0 0 0 12.07 0C5.48 0 .12 5.36.12 11.95c0 2.1.55 4.15 1.6 5.96L.02 24l6.24-1.64a11.9 11.9 0 0 0 5.8 1.48h.01c6.59 0 11.95-5.36 11.95-11.95 0-3.2-1.25-6.2-3.5-8.41Zm-8.45 18.35a9.9 9.9 0 0 1-5.04-1.38l-.36-.21-3.7.97.99-3.6-.23-.37a9.88 9.88 0 0 1-1.52-5.29c0-5.44 4.43-9.87 9.88-9.87a9.8 9.8 0 0 1 6.99 2.9 9.8 9.8 0 0 1 2.89 6.99c0 5.45-4.43 9.88-9.88 9.88Zm5.42-7.4c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.07-.3-.15-1.26-.47-2.4-1.48-.89-.79-1.49-1.76-1.67-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.57-.48-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.01-1.04 2.47s1.07 2.87 1.22 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.75-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.28-.2-.58-.35Z"/>
+  </svg>
+</a>
 
 <main>
 
-  <section class="hero wrap" style="border-top:none;">
-    <div class="eyebrow-tag"><span class="dot" aria-hidden="true"></span><span data-i18n="eyebrow">Desarrollo web · Costa Rica</span></div>
-    <h1 data-i18n="heroTitle">Tu negocio ya existe. Hagamos que también lo encuentren en internet.</h1>
-    <p class="lead" data-i18n="heroLead">Diseño y desarrollo sitios web y tiendas en línea para pymes, turismo rural y negocios costarricenses — hechos a la medida, no con plantillas genéricas.</p>
-    <div class="hero-ctas">
-      <a class="btn-primary" href="#contacto" data-i18n="heroPrimary">Hablemos de tu proyecto</a>
-      <a class="btn-secondary" href="#casos" data-i18n="heroSecondary">Ver proyectos realizados</a>
+  <section class="hero wrap" id="inicio">
+    <div class="hero-copy">
+      <div class="eyebrow-tag"><span class="dot" aria-hidden="true"></span><span data-i18n="eyebrow">Desarrollo web · Costa Rica</span></div>
+      <h1 data-i18n="heroTitle">Tu negocio ya existe. Hagamos que también lo encuentren en internet.</h1>
+      <p class="lead" data-i18n="heroLead">Diseño y desarrollo sitios web y tiendas en línea para pymes, turismo rural y negocios costarricenses — hechos a la medida, no con plantillas genéricas.</p>
+      <div class="hero-ctas">
+        <a class="btn-primary" href="#contacto" data-i18n="heroPrimary">Hablemos de tu proyecto</a>
+        <a class="btn-secondary" href="#casos" data-i18n="heroSecondary">Ver proyectos realizados</a>
+      </div>
     </div>
-
-    <div class="terminal">
-      <div class="terminal-bar" aria-hidden="true"><span></span><span></span><span></span></div>
-      <div class="terminal-body">
-        <div class="line"><span class="k" data-i18n="terminalSearchLabel">buscar:</span> <span data-i18n="terminalSearch">"tours cerca de mí" / "joyería artesanal CR"</span></div>
-        <div class="line"><span class="ok" aria-hidden="true">✓</span> <span data-i18n="terminalResult">tu negocio aparece</span></div>
-        <div class="line"><span class="ok" aria-hidden="true">✓</span> <span data-i18n="terminalBooking">el cliente reserva o compra sin llamarte</span></div>
-        <div class="line"><span class="k" data-i18n="terminalStatusLabel">estado:</span> <span data-i18n="terminalStatus">en línea</span><span class="cursor" aria-hidden="true"></span></div>
+    <div class="hero-visual" aria-label="Vista previa de un sitio web para una marca de joyería artesanal" data-i18n-aria-label="heroVisualLabel">
+      <img class="hero-photo" src="creativas/Captura%20de%20pantalla%202026-09-03%20224406.png" alt="Página de inicio de Joyería Creativas" data-i18n-alt="heroPhotoAlt">
+      <div class="hero-caption">
+        <strong data-i18n="caseTitle">Joyería Creativas</strong>
+        <span data-i18n="caseTag">E-commerce artesanal</span>
+      </div>
+      <div class="hero-float" aria-hidden="true">
+        <img src="creativas/Captura%20de%20pantalla%202026-09-03%20224449.png" alt="">
       </div>
     </div>
   </section>
 
-  <section class="wrap">
+  <section class="wrap" id="problema">
     <div class="section-head">
       <div class="section-label" data-i18n="problemLabel">El problema</div>
       <h2 data-i18n="problemTitle">La gente te busca antes de conocerte</h2>
@@ -245,20 +520,16 @@
       <div class="case-card">
         <div class="case-gallery" aria-label="Galería de colecciones de Joyería Creativas" data-i18n-aria-label="galleryLabel">
           <figure>
-            <img src="creativas/Captura%20de%20pantalla%202026-09-03%20224449.png" alt="Productos de la colección de Joyería Creativas">
-            <figcaption data-i18n="galleryPhotoOne">Productos</figcaption>
+            <img src="creativas/Captura%20de%20pantalla%202026-09-03%20224449.png" alt="Productos de la colección de Joyería Creativas" data-i18n-alt="galleryAltOne">
           </figure>
           <figure>
-            <img src="creativas/Captura%20de%20pantalla%202026-09-03%20224427.png" alt="Colección de aretes de Joyería Creativas">
-            <figcaption data-i18n="galleryPhotoTwo">Aretes</figcaption>
+            <img src="creativas/Captura%20de%20pantalla%202026-09-03%20224427.png" alt="Colección de aretes de Joyería Creativas" data-i18n-alt="galleryAltTwo">
           </figure>
           <figure>
-            <img src="creativas/Captura%20de%20pantalla%202026-09-03%20224406.png" alt="Colección de anillos de Joyería Creativas">
-            <figcaption data-i18n="galleryPhotoThree">Anillos</figcaption>
+            <img src="creativas/Captura%20de%20pantalla%202026-09-03%20224406.png" alt="Colección de anillos de Joyería Creativas" data-i18n-alt="galleryAltThree">
           </figure>
           <figure>
-            <img src="creativas/Captura%20de%20pantalla%202026-09-03%20224328.png" alt="Joyería artesanal de Creativas">
-            <figcaption data-i18n="galleryPhotoFour">Joyería artesanal</figcaption>
+            <img src="creativas/Captura%20de%20pantalla%202026-09-03%20224328.png" alt="Joyería artesanal de Creativas" data-i18n-alt="galleryAltFour">
           </figure>
         </div>
         <div class="case-body">
@@ -266,6 +537,30 @@
           <h3 data-i18n="caseTitle">Joyería Creativas</h3>
           <p data-i18n="caseDescription">Sitio web para una marca de joyería creativa, con una presentación clara de sus productos y una experiencia digital pensada para sus clientes.</p>
           <a class="btn-secondary case-visit" href="https://joyeria-creativas-cr.netlify.app/" target="_blank" rel="noopener" data-i18n="caseVisit">Visitar sitio web</a>
+        </div>
+      </div>
+      <div class="case-card case-card-nexum">
+        <div class="nexum-visual">
+          <div class="nexum-screens" role="group" aria-label="Capturas de las páginas de Nexum Systems" data-i18n-aria-label="nexumGalleryLabel">
+            <figure>
+              <img src="imagenes/nexum/inicio.png" alt="Página de inicio de Nexum Systems" data-i18n-alt="nexumHomeAlt" loading="lazy">
+            </figure>
+            <figure>
+              <img src="imagenes/nexum/nosotros.png" alt="Página Nosotros de Nexum Systems" data-i18n-alt="nexumAboutAlt" loading="lazy">
+            </figure>
+            <figure>
+              <img src="imagenes/nexum/servicios.png" alt="Página de servicios de Nexum Systems" data-i18n-alt="nexumServicesAlt" loading="lazy">
+            </figure>
+            <figure>
+              <img src="imagenes/nexum/contacto.png" alt="Página de contacto de Nexum Systems" data-i18n-alt="nexumContactAlt" loading="lazy">
+            </figure>
+          </div>
+        </div>
+        <div class="case-body">
+          <div class="case-tag" data-i18n="nexumCaseTag">CONSULTORÍA · TRANSFORMACIÓN DIGITAL</div>
+          <h3 data-i18n="nexumCaseTitle">Nexum Systems</h3>
+          <p data-i18n="nexumCaseDescription">Sitio web para una consultora de transformación digital enfocada en sistemas de información seguros, automatización y analítica empresarial.</p>
+          <a class="btn-secondary case-visit" href="https://nexum-systems-cr.vercel.app/" target="_blank" rel="noopener" data-i18n="nexumCaseVisit">Visitar sitio web</a>
         </div>
       </div>
     </div>
@@ -300,7 +595,7 @@
     </div>
   </section>
 
-  <section class="wrap" id="contacto" style="padding-bottom:128px;">
+  <section class="wrap" id="contacto">
     <div class="final-cta">
       <h2 data-i18n="contactTitle">¿Listo para que te encuentren en internet?</h2>
       <p data-i18n="contactText">Contame de tu negocio y hablamos sin compromiso sobre qué necesita tu sitio web.</p>
@@ -322,21 +617,21 @@
 <script>
   const translations = {
     es: {
-      pageTitle: 'Quetzal Systems — Sitios web para negocios de Costa Rica', brand: 'Quetzal Systems', brandLabel: 'Quetzal Systems',
+      pageTitle: 'Quetzal Systems — Sitios web para negocios de Costa Rica', brand: 'Quetzal Systems', brandLabel: 'Quetzal Systems', brandAlt: 'Logotipo de Quetzal Systems',
       navService: 'Servicio', navProjects: 'Proyectos', navProcess: 'Cómo funciona', navContact: 'Escribime',
       accessibilityTitle: 'Accesibilidad', accessibilityToolsLabel: 'Herramientas de accesibilidad', accessibilityToggleLabel: 'Abrir opciones de accesibilidad', accessibilityCloseLabel: 'Cerrar opciones de accesibilidad',
-      languageLabel: 'Idioma', languageButton: 'EN', languageGroupLabel: 'Selección de idioma', textSizeLabel: 'Tamaño del texto', textSizeGroupLabel: 'Selección de tamaño de texto',
+      languageLabel: 'Idioma', languageButton: 'EN', languageToggleLabel: 'Cambiar idioma a inglés', whatsappFloatLabel: 'Escribir por WhatsApp', menuToggleLabel: 'Abrir menú de navegación', menuCloseLabel: 'Cerrar menú de navegación', languageGroupLabel: 'Selección de idioma', textSizeLabel: 'Tamaño del texto', textSizeGroupLabel: 'Selección de tamaño de texto',
       heroTitle: 'Tu negocio ya existe. Hagamos que también lo encuentren en internet.', eyebrow: 'Desarrollo web · Costa Rica', heroLead: 'Diseño y desarrollo sitios web y tiendas en línea para pymes, turismo rural y negocios costarricenses — hechos a la medida, no con plantillas genéricas.', heroPrimary: 'Hablemos de tu proyecto', heroSecondary: 'Ver proyectos realizados', terminalSearchLabel: 'buscar:', terminalSearch: '"tours cerca de mí" / "joyería artesanal CR"', terminalResult: 'tu negocio aparece', terminalBooking: 'el cliente reserva o compra sin llamarte', terminalStatusLabel: 'estado:', terminalStatus: 'en línea',
       problemLabel: 'El problema', problemTitle: 'La gente te busca antes de conocerte', problemTextOne: 'Alguien que quiere visitar una cascada, comprar una joya artesanal o encontrar un negocio local casi siempre empieza en Google o Instagram. Si no aparecés ahí, con información clara y una forma fácil de contactarte o comprarte, <strong>ese cliente termina en el negocio de al lado</strong> — no porque sea mejor, sino porque fue el que sí encontró.', problemTextTwo: 'Un sitio web bien hecho no es un gasto de imagen. Es la diferencia entre que un turista reserve tu tour directamente o que un artesano venda sus piezas fuera de la feria del fin de semana. <strong>Es infraestructura para vender más</strong>, todos los días, sin que vos tengas que estar detrás de cada mensaje.',
       serviceLabel: 'El servicio', serviceTitle: 'Un sitio web hecho para tu negocio, no un molde reciclado', serviceName: 'Sitio web a la medida', serviceDescription: 'Diseño y desarrollo completo: desde la primera conversación sobre tu negocio hasta el sitio publicado y funcionando. Incluye lo que tu negocio realmente necesita, sin relleno.', serviceAudience: 'Ideal para turismo rural, tiendas artesanales, servicios locales y pymes que quieren verse tan serias en línea como lo son en persona.', priceFrom: 'Precios accesibles', priceUnit: '/ proyecto', priceNote: 'Nos ajustamos en la primera conversación.', featureDesign: '<b>Diseño a la medida</b><span>— nada de plantillas genéricas</span>', featureBilingual: '<b>Bilingüe (ES/EN)</b><span>si tu negocio recibe turismo extranjero</span>', featureStore: '<b>Tienda en línea</b><span>con catálogo y pedidos, si vendés productos</span>', featureMobile: '<b>Optimizado para celular</b><span>— así es como te va a buscar la mayoría</span>', featureSupport: '<b>Acompañamiento post-entrega</b><span>para ajustes y dudas</span>',
-      casesLabel: 'Proyectos reales', casesTitle: 'Trabajos realizados', galleryLabel: 'Galería de productos de Joyería Creativas', galleryPhotoOne: 'Productos', galleryPhotoTwo: 'Aretes', galleryPhotoThree: 'Anillos', galleryPhotoFour: 'Joyería artesanal', caseTag: 'E-COMMERCE ARTESANAL', caseTitle: 'Joyería Creativas', caseDescription: 'Sitio web para una marca de joyería creativa, con una presentación clara de sus productos y una experiencia digital pensada para sus clientes.', caseVisit: 'Visitar sitio web',
+      casesLabel: 'Proyectos reales', casesTitle: 'Trabajos realizados', galleryLabel: 'Galería de productos de Joyería Creativas', heroVisualLabel: 'Vista previa de un sitio web para una marca de joyería artesanal', heroPhotoAlt: 'Página de inicio de Joyería Creativas', galleryAltOne: 'Productos de la colección de Joyería Creativas', galleryAltTwo: 'Colección de aretes de Joyería Creativas', galleryAltThree: 'Colección de anillos de Joyería Creativas', galleryAltFour: 'Joyería artesanal de Creativas', galleryPhotoOne: 'Productos', galleryPhotoTwo: 'Aretes', galleryPhotoThree: 'Anillos', galleryPhotoFour: 'Joyería artesanal', caseTag: 'E-COMMERCE ARTESANAL', caseTitle: 'Joyería Creativas', caseDescription: 'Sitio web para una marca de joyería creativa, con una presentación clara de sus productos y una experiencia digital pensada para sus clientes.', caseVisit: 'Visitar sitio web', nexumGalleryLabel: 'Capturas de las páginas de Nexum Systems', nexumHomeAlt: 'Página de inicio de Nexum Systems', nexumAboutAlt: 'Página Nosotros de Nexum Systems', nexumServicesAlt: 'Página de servicios de Nexum Systems', nexumContactAlt: 'Página de contacto de Nexum Systems', nexumHomeCaption: 'Inicio', nexumAboutCaption: 'Nosotros', nexumServicesCaption: 'Servicios', nexumContactCaption: 'Contacto', nexumVisualQuote: 'Datos confiables. Sistemas seguros. Mejores decisiones.', nexumPillarOne: 'Sistemas', nexumPillarTwo: 'Automatización', nexumPillarThree: 'Analítica', nexumCaseTag: 'CONSULTORÍA · TRANSFORMACIÓN DIGITAL', nexumCaseTitle: 'Nexum Systems', nexumCaseDescription: 'Sitio web para una consultora de transformación digital enfocada en sistemas de información seguros, automatización y analítica empresarial.', nexumCaseVisit: 'Visitar sitio web',
       processLabel: 'Cómo funciona', processTitle: 'De la idea al sitio publicado', stepOneTitle: 'Conversamos', stepOneText: 'Me contás sobre tu negocio, quiénes son tus clientes y qué necesitás que el sitio haga por vos.', stepTwoTitle: 'Diseño y desarrollo', stepTwoText: 'Construyo el sitio a la medida de tu negocio, con revisiones en el camino para que vaya como lo imaginás.', stepThreeTitle: 'Ajustes finales', stepThreeText: 'Revisamos juntos, afinamos textos, imágenes y detalles hasta que quede listo para publicarse.', stepFourTitle: 'Publicación', stepFourText: 'Tu sitio queda en línea y funcionando, con acompañamiento si surge algo después.',
       contactTitle: '¿Listo para que te encuentren en internet?', contactText: 'Contame de tu negocio y hablamos sin compromiso sobre qué necesita tu sitio web.', contactWhatsapp: 'Escribir por WhatsApp', contactEmail: 'Enviar un correo', contactWhatsappLabel: 'WhatsApp:', contactEmailLabel: 'Correo:', footerBrand: 'Quetzal Systems — Desarrollo web, Costa Rica', footerCopyright: '© 2026'
     },
     en: {
-      pageTitle: 'Quetzal Systems — Websites for Costa Rican businesses', brand: 'Quetzal Systems', brandLabel: 'Quetzal Systems', navService: 'Services', navProjects: 'Projects', navProcess: 'How it works', navContact: 'Contact me', accessibilityTitle: 'Accessibility', accessibilityToolsLabel: 'Accessibility tools', accessibilityToggleLabel: 'Open accessibility options', accessibilityCloseLabel: 'Close accessibility options', languageLabel: 'Language', languageButton: 'ES', languageGroupLabel: 'Language selection', textSizeLabel: 'Text size', textSizeGroupLabel: 'Text size selection',
+      pageTitle: 'Quetzal Systems — Websites for Costa Rican businesses', brand: 'Quetzal Systems', brandLabel: 'Quetzal Systems', brandAlt: 'Quetzal Systems logo', navService: 'Services', navProjects: 'Projects', navProcess: 'How it works', navContact: 'Contact me', accessibilityTitle: 'Accessibility', accessibilityToolsLabel: 'Accessibility tools', accessibilityToggleLabel: 'Open accessibility options', accessibilityCloseLabel: 'Close accessibility options', languageLabel: 'Language', languageButton: 'ES', languageToggleLabel: 'Switch language to Spanish', whatsappFloatLabel: 'Message us on WhatsApp', menuToggleLabel: 'Open navigation menu', menuCloseLabel: 'Close navigation menu', languageGroupLabel: 'Language selection', textSizeLabel: 'Text size', textSizeGroupLabel: 'Text size selection',
       heroTitle: 'Your business exists. Let people find it online too.', eyebrow: 'Web development · Costa Rica', heroLead: 'I design and build websites and online stores for small businesses, rural tourism and Costa Rican businesses — custom-made, never generic templates.', heroPrimary: 'Let’s talk about your project', heroSecondary: 'See completed projects', terminalSearchLabel: 'search:', terminalSearch: '"tours near me" / "artisan jewelry CR"', terminalResult: 'your business appears', terminalBooking: 'customers book or buy without calling', terminalStatusLabel: 'status:', terminalStatus: 'online', problemLabel: 'The problem', problemTitle: 'People search for you before they know you', problemTextOne: 'Someone who wants to visit a waterfall, buy an artisan jewel or find a local business almost always starts on Google or Instagram. If you are not there with clear information and an easy way to contact or buy from you, <strong>that customer ends up at the business next door</strong> — not because it is better, but because it was the one they found.', problemTextTwo: 'A well-built website is not an image expense. It is the difference between a tourist booking your tour directly or an artisan selling pieces beyond the weekend fair. <strong>It is infrastructure for selling more</strong>, every day, without chasing every message.',
-      serviceLabel: 'The service', serviceTitle: 'A website made for your business, not a recycled mold', serviceName: 'Custom website', serviceDescription: 'Complete design and development: from the first conversation about your business to a published, working site. It includes what your business truly needs, without filler.', serviceAudience: 'Ideal for rural tourism, artisan shops, local services and small businesses that want to look as professional online as they are in person.', priceFrom: 'Affordable pricing', priceUnit: '/ project', priceNote: 'We will tailor it during our first conversation.', featureDesign: '<b>Custom design</b><span>— no generic templates</span>', featureBilingual: '<b>Bilingual (ES/EN)</b><span>if your business welcomes international visitors</span>', featureStore: '<b>Online store</b><span>with catalog and orders, if you sell products</span>', featureMobile: '<b>Mobile optimized</b><span>— that is how most people will find you</span>', featureSupport: '<b>Post-launch support</b><span>for questions and adjustments</span>', casesLabel: 'Completed projects', casesTitle: 'Completed work', galleryLabel: 'Joyería Creativas product gallery', galleryPhotoOne: 'Products', galleryPhotoTwo: 'Earrings', galleryPhotoThree: 'Rings', galleryPhotoFour: 'Artisan jewelry', caseTag: 'ARTISAN E-COMMERCE', caseTitle: 'Joyería Creativas', caseDescription: 'Website for a creative jewelry brand, with a clear presentation of its products and a digital experience designed for its customers.', caseVisit: 'Visit website', processLabel: 'How it works', processTitle: 'From idea to published site', stepOneTitle: 'We talk', stepOneText: 'You tell me about your business, your customers and what you need the website to do for you.', stepTwoTitle: 'Design and development', stepTwoText: 'I build a custom site for your business, with reviews along the way so it matches your vision.', stepThreeTitle: 'Final adjustments', stepThreeText: 'We review it together and refine the copy, images and details until it is ready to launch.', stepFourTitle: 'Launch', stepFourText: 'Your site goes live and keeps working, with support if something comes up later.', contactTitle: 'Ready to be found online?', contactText: 'Tell me about your business and let’s discuss what your website needs, with no pressure.', contactWhatsapp: 'Message on WhatsApp', contactEmail: 'Send an email', contactWhatsappLabel: 'WhatsApp:', contactEmailLabel: 'Email:', footerBrand: 'Quetzal Systems — Web development, Costa Rica', footerCopyright: '© 2026'
+      serviceLabel: 'The service', serviceTitle: 'A website made for your business, not a recycled mold', serviceName: 'Custom website', serviceDescription: 'Complete design and development: from the first conversation about your business to a published, working site. It includes what your business truly needs, without filler.', serviceAudience: 'Ideal for rural tourism, artisan shops, local services and small businesses that want to look as professional online as they are in person.', priceFrom: 'Affordable pricing', priceUnit: '/ project', priceNote: 'We will tailor it during our first conversation.', featureDesign: '<b>Custom design</b><span>— no generic templates</span>', featureBilingual: '<b>Bilingual (ES/EN)</b><span>if your business welcomes international visitors</span>', featureStore: '<b>Online store</b><span>with catalog and orders, if you sell products</span>', featureMobile: '<b>Mobile optimized</b><span>— that is how most people will find you</span>', featureSupport: '<b>Post-launch support</b><span>for questions and adjustments</span>', casesLabel: 'Completed projects', casesTitle: 'Completed work', galleryLabel: 'Joyería Creativas product gallery', heroVisualLabel: 'Website preview for an artisan jewelry brand', heroPhotoAlt: 'Joyería Creativas homepage', galleryAltOne: 'Products from the Joyería Creativas collection', galleryAltTwo: 'Earrings from the Joyería Creativas collection', galleryAltThree: 'Rings from the Joyería Creativas collection', galleryAltFour: 'Artisan jewelry by Creativas', galleryPhotoOne: 'Products', galleryPhotoTwo: 'Earrings', galleryPhotoThree: 'Rings', galleryPhotoFour: 'Artisan jewelry', caseTag: 'ARTISAN E-COMMERCE', caseTitle: 'Joyería Creativas', caseDescription: 'Website for a creative jewelry brand, with a clear presentation of its products and a digital experience designed for its customers.', caseVisit: 'Visit website', nexumGalleryLabel: 'Nexum Systems page screenshots', nexumHomeAlt: 'Nexum Systems home page', nexumAboutAlt: 'About Nexum Systems page', nexumServicesAlt: 'Nexum Systems services page', nexumContactAlt: 'Nexum Systems contact page', nexumHomeCaption: 'Home', nexumAboutCaption: 'About', nexumServicesCaption: 'Services', nexumContactCaption: 'Contact', nexumVisualQuote: 'Reliable data. Secure systems. Better decisions.', nexumPillarOne: 'Systems', nexumPillarTwo: 'Automation', nexumPillarThree: 'Analytics', nexumCaseTag: 'CONSULTING · DIGITAL TRANSFORMATION', nexumCaseTitle: 'Nexum Systems', nexumCaseDescription: 'Website for a digital transformation consultancy focused on secure information systems, automation, and business analytics.', nexumCaseVisit: 'Visit website', processLabel: 'How it works', processTitle: 'From idea to published site', stepOneTitle: 'We talk', stepOneText: 'You tell me about your business, your customers and what you need the website to do for you.', stepTwoTitle: 'Design and development', stepTwoText: 'I build a custom site for your business, with reviews along the way so it matches your vision.', stepThreeTitle: 'Final adjustments', stepThreeText: 'We review it together and refine the copy, images and details until it is ready to launch.', stepFourTitle: 'Launch', stepFourText: 'Your site goes live and keeps working, with support if something comes up later.', contactTitle: 'Ready to be found online?', contactText: 'Tell me about your business and let’s discuss what your website needs, with no pressure.', contactWhatsapp: 'Message on WhatsApp', contactEmail: 'Send an email', contactWhatsappLabel: 'WhatsApp:', contactEmailLabel: 'Email:', footerBrand: 'Quetzal Systems — Web development, Costa Rica', footerCopyright: '© 2026'
     }
   };
 </script>
@@ -345,6 +640,8 @@
   const panel = document.getElementById('accessibility-panel');
   const panelToggle = document.getElementById('accessibility-toggle');
   const languageToggle = document.getElementById('language-toggle');
+  const menu = document.getElementById('nav-menu');
+  const menuToggle = document.getElementById('nav-menu-toggle');
   const fontScaleKey = 'hjd-font-scale';
   let language = localStorage.getItem('hjd-language') || 'es';
   let fontScale = Number(localStorage.getItem(fontScaleKey)) || 100;
@@ -356,21 +653,47 @@
     document.querySelectorAll('[data-i18n]').forEach(function(element){ element.textContent = content[element.dataset.i18n]; });
     document.querySelectorAll('[data-i18n-html]').forEach(function(element){ element.innerHTML = content[element.dataset.i18nHtml]; });
     document.querySelectorAll('[data-i18n-aria-label]').forEach(function(element){ element.setAttribute('aria-label', content[element.dataset.i18nAriaLabel]); });
+    document.querySelectorAll('[data-i18n-alt]').forEach(function(element){ element.setAttribute('alt', content[element.dataset.i18nAlt]); });
     languageToggle.textContent = content.languageButton;
+    menuToggle.setAttribute('aria-label', content[menuToggle.getAttribute('aria-expanded') === 'true' ? 'menuCloseLabel' : 'menuToggleLabel']);
     panelToggle.setAttribute('aria-label', content[panelToggle.getAttribute('aria-expanded') === 'true' ? 'accessibilityCloseLabel' : 'accessibilityToggleLabel']);
     document.title = content.pageTitle;
   }
   function setFontScale(nextScale){ fontScale = Math.min(150, Math.max(80, nextScale)); root.style.setProperty('--base-size', fontScale + '%'); localStorage.setItem(fontScaleKey, fontScale); }
-  panelToggle.addEventListener('click', function(){ const isOpen = panelToggle.getAttribute('aria-expanded') === 'true'; panelToggle.setAttribute('aria-expanded', String(!isOpen)); panelToggle.setAttribute('aria-label', translations[language][isOpen ? 'accessibilityToggleLabel' : 'accessibilityCloseLabel']); panel.hidden = isOpen; panel.classList.toggle('is-open', !isOpen); if (!isOpen) languageToggle.focus(); });
+  panelToggle.addEventListener('click', function(){ const isOpen = panelToggle.getAttribute('aria-expanded') === 'true'; panelToggle.setAttribute('aria-expanded', String(!isOpen)); panelToggle.setAttribute('aria-label', translations[language][isOpen ? 'accessibilityToggleLabel' : 'accessibilityCloseLabel']); panel.hidden = isOpen; panel.classList.toggle('is-open', !isOpen); if (!isOpen) document.getElementById('font-decrease').focus(); });
+  menuToggle.addEventListener('click', function(){ const isOpen = menuToggle.getAttribute('aria-expanded') === 'true'; menuToggle.setAttribute('aria-expanded', String(!isOpen)); menuToggle.setAttribute('aria-label', translations[language][isOpen ? 'menuToggleLabel' : 'menuCloseLabel']); menu.classList.toggle('is-open', !isOpen); if (!isOpen) menu.querySelector('a').focus(); });
+  menu.querySelectorAll('a').forEach(function(link){ link.addEventListener('click', function(){ if (menuToggle.getAttribute('aria-expanded') === 'true'){ menuToggle.setAttribute('aria-expanded', 'false'); menuToggle.setAttribute('aria-label', translations[language].menuToggleLabel); menu.classList.remove('is-open'); } }); });
   languageToggle.addEventListener('click', function(){ language = language === 'es' ? 'en' : 'es'; localStorage.setItem('hjd-language', language); applyLanguage(); });
   document.getElementById('font-decrease').addEventListener('click', function(){ setFontScale(fontScale - 10); });
   document.getElementById('font-increase').addEventListener('click', function(){ setFontScale(fontScale + 10); });
-  document.addEventListener('keydown', function(event){ if (event.key === 'Escape' && !panel.hidden){ panel.hidden = true; panel.classList.remove('is-open'); panelToggle.setAttribute('aria-expanded', 'false'); panelToggle.setAttribute('aria-label', translations[language].accessibilityToggleLabel); panelToggle.focus(); } });
+  document.addEventListener('keydown', function(event){
+    if (event.key !== 'Escape') return;
+    if (menuToggle.getAttribute('aria-expanded') === 'true'){
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.setAttribute('aria-label', translations[language].menuToggleLabel);
+      menu.classList.remove('is-open');
+      menuToggle.focus();
+    }
+    if (!panel.hidden){
+      panel.hidden = true;
+      panel.classList.remove('is-open');
+      panelToggle.setAttribute('aria-expanded', 'false');
+      panelToggle.setAttribute('aria-label', translations[language].accessibilityToggleLabel);
+      panelToggle.focus();
+    }
+  });
+  window.addEventListener('resize', function(){ if (window.innerWidth > 720 && menuToggle.getAttribute('aria-expanded') === 'true'){ menuToggle.setAttribute('aria-expanded', 'false'); menuToggle.setAttribute('aria-label', translations[language].menuToggleLabel); menu.classList.remove('is-open'); } });
   setFontScale(fontScale);
   applyLanguage();
+  const whatsappButton = document.querySelector('.whatsapp-float');
+  const hero = document.querySelector('.hero');
+  function updateWhatsAppVisibility(){
+    whatsappButton.classList.toggle('is-visible', hero.getBoundingClientRect().bottom <= window.innerHeight / 2);
+  }
+  window.addEventListener('scroll', updateWhatsAppVisibility, { passive: true });
+  window.addEventListener('resize', updateWhatsAppVisibility);
+  updateWhatsAppVisibility();
 </script>
 
 </body>
 </html>
-
-
